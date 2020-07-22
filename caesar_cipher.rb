@@ -7,16 +7,14 @@ def caesar_cipher(input_string, shift_factor)
     elsif char_number >= 65 && char_number <= 90
       slide_factor = 64
     else
-      break
+      next
     end
-      char_number -= slide_factor
-      char_number += shift_factor
-      char_number = char_number % 26
-      char_number += slide_factor
-      input_as_array[i] = char_number.chr
+    char_number -= slide_factor
+    char_number += shift_factor
+    char_number = char_number % 26
+    char_number += slide_factor
+    input_as_array[i] = char_number.chr
   end
   output_string = input_as_array.join
-  puts output_string
+  output_string
 end
-
-caesar_cipher("Helloz!", 5)
