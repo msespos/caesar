@@ -24,4 +24,20 @@ describe "#caesar_cipher" do
   it "handles punctuation" do
     expect(caesar_cipher("a,b,c", 5)).to eql("f,g,h")
   end
+
+  it "handles spaces" do
+    expect(caesar_cipher("A B C", 5)).to eql("F G H")
+  end
+
+  it "shifts by more than 26 with capitalization" do
+    expect(caesar_cipher("aBcDe", 27)).to eql("bCdEf")
+  end
+
+  it "wraps around with capitalization and punctuation" do
+    expect(caesar_cipher("z!Y!x", 5)).to eql("e!D!c")
+  end
+
+  it "wraps around with capitalization and punctuation and a very large shift value" do
+    expect(caesar_cipher("z!Y!x", 2605)).to eql("e!D!c")
+  end
 end
