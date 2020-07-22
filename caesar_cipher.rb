@@ -11,7 +11,11 @@ def caesar_cipher(input_string, shift_factor)
     end
     char_number -= slide_factor
     char_number += shift_factor
-    char_number = char_number % 26
+    if char_number % 26 == 0
+      char_number = 26
+    else
+      char_number = char_number % 26
+    end
     char_number += slide_factor
     input_as_array[i] = char_number.chr
   end

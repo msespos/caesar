@@ -40,4 +40,8 @@ describe "#caesar_cipher" do
   it "wraps around with capitalization and punctuation and a very large shift value" do
     expect(caesar_cipher("z!Y!x", 2605)).to eql("e!D!c")
   end
+
+  it "handles negative shift" do
+    expect(caesar_cipher("eBcDe", -5)).to eql("zWxYz")
+  end
 end
